@@ -7,7 +7,7 @@ RUN apt-get update && \
     pip install boto3
 
 RUN apt-get install -y zlib1g-dev &&  \
-    docker-php-ext-install zip
+    docker-php-ext-install zip pdo pdo_mysql
 
 
 RUN php -r "copy('https://getcomposer.org/installer', 'composer-setup.php');" && \

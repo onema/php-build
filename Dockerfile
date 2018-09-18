@@ -16,4 +16,12 @@ RUN php -r "copy('https://getcomposer.org/installer', 'composer-setup.php');" &&
     php -r "unlink('composer-setup.php');" && \
     mv composer.phar /usr/local/bin/composer
 
+# Install nodejs
+RUN apt-get update && apt-get install -my wget gnupg && \
+    curl -sL https://deb.nodesource.com/setup_8.x -o nodesource_setup.sh && \
+    chmod +x nodesource_setup.sh && \
+    ./nodesource_setup.sh && \
+    apt-get install nodejs && \
+    rm nodesource_setup.sh
+
 WORKDIR /var/www/html/
